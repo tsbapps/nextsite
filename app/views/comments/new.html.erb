@@ -1,0 +1,29 @@
+
+<% if @commentOb.errors.any? %>
+	<div id="errors">
+		<p>Please correct the following <%= pluralize(@commentOb.errors.count, "error") %> : </p>
+		<ul>
+			<% @commentOb.errors.full_messages.each do |msg| %>
+				<li><%=msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+<div class="col-xs-3 col-xs-offset-1">
+	<div class="well">
+		<h1>New Comment</h1>
+		<%= form_for :comments, url: comments_path do |f| %>
+
+		  <p>
+		    <%= f.label :Comment %><br>
+		    <%= f.hidden_field :user_id, :value=>current_user.id %> 
+		    <%= f.text_field :comment, :placeholder=>'Insert Text Here' %>
+		  </p>
+		 
+		  <p>
+		    <%= f.submit :class=>'btn btn-success'%>
+		  </p>
+		<% end %>
+	</div>
+</div>
+ <%= render("comments/commentList") %>
