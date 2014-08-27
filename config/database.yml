@@ -1,15 +1,17 @@
 development:
+  host: localhost
   adapter: postgresql
   encoding: unicode
-  database: store_development
+  database: testdb
   pool: 5
-  username: postgresql
+  username: postgres
   password: tsb1234
 
 test:
+  host: localhost
   adapter: postgresql
   encoding: unicode
-  database: store_test
+  database: testdb
   pool: 5
-  username: postgresql
+  username: postgres
   password: tsb1234
